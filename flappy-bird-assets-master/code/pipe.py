@@ -9,7 +9,7 @@ class Pipe(pygame.sprite.Sprite):
 
         self.y_pos = randint(200, 680)
 
-        self.image = pygame.image.load(r'C:\tristan\python\flappybird\flappy-bird-assets-master\sprites\pipe-green.png').convert_alpha()
+        self.image = pygame.image.load(r'../sprites/pipe-green.png').convert_alpha()
         self.image = pygame.transform.scale(self.image, (104, 640))
         self.rect = self.image.get_rect(topleft=(700, self.y_pos))
 

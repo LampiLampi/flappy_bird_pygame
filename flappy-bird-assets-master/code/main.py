@@ -7,7 +7,7 @@ from pipe import Pipe
 
 class Game:
     def __init__(self):
-        icon = pygame.image.load(r'C:\tristan\python\flappybird\flappy-bird-assets-master\favicon.ico')
+        icon = pygame.image.load(r'../favicon.ico')
         pygame.display.set_caption('Flappy Bird')
         pygame.display.set_icon(icon)
         pygame.init()
@@ -15,16 +15,16 @@ class Game:
 
         self.screen = pygame.display.set_mode(WINDOW_SIZE)
 
-        self.death_sound = pygame.mixer.Sound(r'C:\tristan\python\flappybird\flappy-bird-assets-master\audio\die.wav')
+        self.death_sound = pygame.mixer.Sound(r'../audio/die.wav')
         self.death_sound.set_volume(0.4)
-        self.point_sound = pygame.mixer.Sound(r'C:\tristan\python\flappybird\flappy-bird-assets-master\audio\point.wav')
+        self.point_sound = pygame.mixer.Sound(r'../audio/point.wav')
         self.point_sound.set_volume(0.4)
 
-        self.background_image = pygame.image.load(r'C:\tristan\python\flappybird\flappy-bird-assets-master\sprites\background-day.png').convert()
+        self.background_image = pygame.image.load(r'../sprites/background-day.png').convert()
         self.background_image = pygame.transform.scale(self.background_image, (576, 1024))
         self.background_rect = self.background_image.get_rect(topleft=(0, 0))
 
-        self.ground = pygame.image.load(r'C:\tristan\python\flappybird\flappy-bird-assets-master\sprites\base.png')
+        self.ground = pygame.image.load(r'../sprites/base.png')
         self.ground = pygame.transform.scale(self.ground, (672, 224))
         self.ground_rect = self.ground.get_rect(topleft=(0, 700))
         self.moved = 0
@@ -38,20 +38,20 @@ class Game:
         self.player.add(Player())
         self.alive = True
 
-        self.title_screen = pygame.image.load(r'C:\tristan\python\flappybird\flappy-bird-assets-master\sprites\message.png').convert_alpha()
+        self.title_screen = pygame.image.load(r'../sprites/message.png').convert_alpha()
         self.title_screen = pygame.transform.scale(self.title_screen, (368, 534))
         self.title_screen_rect = self.title_screen.get_rect(topleft=(100, 100))
 
-        self.score_0 = pygame.image.load(r'C:\tristan\python\flappybird\flappy-bird-assets-master\sprites\0.png').convert_alpha()
-        self.score_1 = pygame.image.load(r'C:\tristan\python\flappybird\flappy-bird-assets-master\sprites\1.png').convert_alpha()
-        self.score_2 = pygame.image.load(r'C:\tristan\python\flappybird\flappy-bird-assets-master\sprites\2.png').convert_alpha()
-        self.score_3 = pygame.image.load(r'C:\tristan\python\flappybird\flappy-bird-assets-master\sprites\3.png').convert_alpha()
-        self.score_4 = pygame.image.load(r'C:\tristan\python\flappybird\flappy-bird-assets-master\sprites\4.png').convert_alpha()
-        self.score_5 = pygame.image.load(r'C:\tristan\python\flappybird\flappy-bird-assets-master\sprites\5.png').convert_alpha()
-        self.score_6 = pygame.image.load(r'C:\tristan\python\flappybird\flappy-bird-assets-master\sprites\6.png').convert_alpha()
-        self.score_7 = pygame.image.load(r'C:\tristan\python\flappybird\flappy-bird-assets-master\sprites\7.png').convert_alpha()
-        self.score_8 = pygame.image.load(r'C:\tristan\python\flappybird\flappy-bird-assets-master\sprites\8.png').convert_alpha()
-        self.score_9 = pygame.image.load(r'C:\tristan\python\flappybird\flappy-bird-assets-master\sprites\9.png').convert_alpha()
+        self.score_0 = pygame.image.load(r'../sprites/0.png').convert_alpha()
+        self.score_1 = pygame.image.load(r'../sprites/1.png').convert_alpha()
+        self.score_2 = pygame.image.load(r'../sprites/2.png').convert_alpha()
+        self.score_3 = pygame.image.load(r'../sprites/3.png').convert_alpha()
+        self.score_4 = pygame.image.load(r'../sprites/4.png').convert_alpha()
+        self.score_5 = pygame.image.load(r'../sprites/5.png').convert_alpha()
+        self.score_6 = pygame.image.load(r'../sprites/6.png').convert_alpha()
+        self.score_7 = pygame.image.load(r'../sprites/7.png').convert_alpha()
+        self.score_8 = pygame.image.load(r'../sprites/8.png').convert_alpha()
+        self.score_9 = pygame.image.load(r'../sprites/9.png').convert_alpha()
         self.scorelist = []
         self.passed_time = 0
 
@@ -151,6 +151,7 @@ class Game:
                 self.screen.blit(self.ground, self.ground_rect)
                 self.collision()
                 self.update_score()
+
                 pygame.display.update()
                 self.clock.tick(FPS)
 
