@@ -151,7 +151,6 @@ class Game:
                 self.screen.blit(self.ground, self.ground_rect)
                 self.collision()
                 self.update_score()
-                print(self.clock.get_fps())
                 pygame.display.update()
                 self.clock.tick(FPS)
 
