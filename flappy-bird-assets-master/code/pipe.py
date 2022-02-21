@@ -7,7 +7,7 @@ class Pipe(pygame.sprite.Sprite):
     def __init__(self, playing):
         super().__init__()
 
-        self.y_pos = randint(200, 700)
+        self.y_pos = randint(200, 68)
 
         self.image = pygame.image.load(r'C:\tristan\python\flappybird\flappy-bird-assets-master\sprites\pipe-green.png').convert_alpha()
         self.image = pygame.transform.scale(self.image, (104, 640))
