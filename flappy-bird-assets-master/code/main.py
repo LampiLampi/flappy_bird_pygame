@@ -3,6 +3,7 @@ import sys
 from settings import *
 from player import Player
 from pipe import Pipe
+from random import choice
 
 
 class Game:
@@ -20,7 +21,8 @@ class Game:
         self.point_sound = pygame.mixer.Sound(r'../audio/point.wav')
         self.point_sound.set_volume(0.4)
 
-        self.background_image = pygame.image.load(r'../sprites/background-day.png').convert()
+        rand_back = choice(['day', 'night'])
+        self.background_image = pygame.image.load(f'../sprites/background-{rand_back}.png').convert()
         self.background_image = pygame.transform.scale(self.background_image, (576, 1024))
         self.background_rect = self.background_image.get_rect(topleft=(0, 0))
 

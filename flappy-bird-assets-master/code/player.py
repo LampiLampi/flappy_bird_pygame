@@ -37,6 +37,9 @@ class Player(pygame.sprite.Sprite):
             if pygame.mixer.get_busy() == 0:
                 self.jump.play()
 
+    def speed_rotation(self):
+        self.image = pygame.transform.rotate(self.image, -abs(self.gravity)*4+30)
+
     def apply_gravity(self):
         self.gravity += 0.7
         self.rect.y += self.gravity
@@ -45,4 +48,5 @@ class Player(pygame.sprite.Sprite):
         self.input()
         self.apply_gravity()
         self.animation()
+        self.speed_rotation()
 
