@@ -32,7 +32,7 @@ class Game:
         self.moved = 0
 
         self.pipenew_event = pygame.USEREVENT + 1
-        pygame.time.set_timer(self.pipenew_event, 2800)
+        pygame.time.set_timer(self.pipenew_event, 2800) #2800
 
         self.clock = pygame.time.Clock()
         self.player = pygame.sprite.GroupSingle()
@@ -128,10 +128,18 @@ class Game:
             self.death_sound.play()
             print('collided with ground')
 
-        if pygame.sprite.spritecollide(self.player.sprite, self.pipes, False):
-            self.alive = False
-            self.death_sound.play()
-            print('collided with pipes')
+            '''        if pygame.sprite.spritecollide(self.player.sprite, self.pipes, False):
+                        self.alive = False
+                        self.death_sound.play()
+                        print('collided with pipes')'''
+
+        for pipe in self.pipes:
+            if self.player.sprite.rect.colliderect(pipe.get_bottom_rect()) \
+                    or self.player.sprite.rect.colliderect(pipe.get_top_rect()):
+                self.alive = False
+                self.death_sound.play()
+                print('collided with pipes')
+
 
     def run(self):
         while True:
